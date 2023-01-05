@@ -1,4 +1,7 @@
 import { Component } from "react";
+import Section from "./Section";
+import Statistic from "./Statistic";
+import FeedbackOptions from "./FeedbackOptions";
 
 class Feedback extends Component {
     constructor() {
@@ -29,22 +32,21 @@ class Feedback extends Component {
     }
 
     render() {
-        return <section>
-            <h1>Please leave feedback</h1>
-            <div>
-                <button onClick={this.good} type="button">Good</button>
-                <button onClick={this.neutral} type="button">Neutral</button>
-                <button onClick={this.bad} type="button">Bad</button>
-            </div>
-            <div>
-                <span>Good: {this.state.good}</span>
-                <span>Neutral: {this.state.neutral}</span>
-                <span>Bad: {this.state.bad}</span>
-                <span>Total: {this.countTotalFeedback()}</span>
-                <span>Positive feedback: {this.countPositiveFeedbackPercentage()}% </span>
-            </div>
-        </section>;
-  }
+        return <Section title="Please leave feedback">
+                <FeedbackOptions
+                    good={this.good}
+                    neutral={this.neutral}
+                    bad={this.bad}
+                />
+                <Statistic
+                    good={this.state.good}
+                    neutral={this.state.neutral}
+                    bad={this.state.bad}
+                    total={this.countTotalFeedback()}
+                    positivePercentage={this.countPositiveFeedbackPercentage()}
+                />
+            </Section>;
+    }
 }
 
 export default Feedback;
