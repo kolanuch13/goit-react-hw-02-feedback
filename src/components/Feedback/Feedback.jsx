@@ -1,7 +1,7 @@
 import { Component } from "react";
-import Section from "./Section";
-import Statistic from "./Statistic";
-import FeedbackOptions from "./FeedbackOptions";
+import Section from "components/Section/Section";
+import Statistic from "components/Statistic/Statistic";
+import FeedbackOptions from "components/FeedbackOptions/FeedbackOptions";
 
 class Feedback extends Component {
     constructor() {
